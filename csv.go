@@ -29,7 +29,7 @@ func (trdsql *TRDSQL) csvInputNew(r io.Reader) (Input, error) {
 	cr.reader = csv2.NewReader(r)
 	cr.reader.LazyQuotes = true
 	cr.reader.FieldsPerRecord = -1 // no check count
-	cr.reader.TrimLeadingSpace = true
+	cr.reader.TrimLeadingSpace = trdsql.itls
 	cr.reader.Comma, err = getSeparator(trdsql.inSep)
 	cr.reader.Quote, err = getSeparator(trdsql.inQuote)
 	cr.inHeader = trdsql.ihead
