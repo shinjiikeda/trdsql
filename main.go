@@ -13,6 +13,8 @@ type TRDSQL struct {
 	dsn       string
 	inSep     string
 	outSep    string
+	inQuote   string
+	outQuote   string
 	iskip     int
 	iguess    bool
 	iltsv     bool

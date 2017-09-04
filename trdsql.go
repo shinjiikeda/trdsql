@@ -63,6 +63,8 @@ func (trdsql *TRDSQL) Run(args []string) int {
 	flags.BoolVar(&trdsql.iltsv, "iltsv", false, "LTSV format for input.")
 	flags.StringVar(&trdsql.inSep, "id", ",", "Field delimiter for input.")
 	flags.StringVar(&trdsql.outSep, "od", ",", "Field delimiter for output.")
+	flags.StringVar(&trdsql.inQuote, "iq", "\"", "Field Quoter for input.")
+	flags.StringVar(&trdsql.outQuote, "oq", ",", "Field Quoter for output.")
 	flags.BoolVar(&trdsql.ihead, "ih", false, "The first line is interpreted as column names(CSV only).")
 	flags.IntVar(&trdsql.iskip, "is", 0, "Skip header row.")
 	flags.BoolVar(&trdsql.outHeader, "oh", false, "Output column name as header.")

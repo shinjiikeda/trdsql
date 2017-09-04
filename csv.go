@@ -1,7 +1,8 @@
 package main
 
 import (
-	"encoding/csv"
+	//"encoding/csv"
+    "./lib"
 	"io"
 	"strconv"
 	"strings"
@@ -9,7 +10,7 @@ import (
 
 // CSVIn provides methods of the Input interface
 type CSVIn struct {
-	reader   *csv.Reader
+	reader   *csv2.Reader
 	header   []string
 	fRow     []string
 	inHeader bool
@@ -17,7 +18,7 @@ type CSVIn struct {
 
 // CSVOut provides methods of the Output interface
 type CSVOut struct {
-	writer    *csv.Writer
+	writer    *csv2.Writer
 	results   []string
 	outHeader bool
 }
@@ -25,11 +26,12 @@ type CSVOut struct {
 func (trdsql *TRDSQL) csvInputNew(r io.Reader) (Input, error) {
 	var err error
 	cr := &CSVIn{}
-	cr.reader = csv.NewReader(r)
+	cr.reader = csv2.NewReader(r)
 	cr.reader.LazyQuotes = true
 	cr.reader.FieldsPerRecord = -1 // no check count
 	cr.reader.TrimLeadingSpace = true
 	cr.reader.Comma, err = getSeparator(trdsql.inSep)
+    cr.reader.Quote, err = getSeparator(trdsql.inQuote)
 	cr.inHeader = trdsql.ihead
 	return cr, err
 }
@@ -82,8 +84,9 @@ func (cr *CSVIn) rowRead(list []interface{}) ([]interface{}, error) {
 func (trdsql *TRDSQL) csvOutNew() Output {
 	var err error
 	c := &CSVOut{}
-	c.writer = csv.NewWriter(trdsql.outStream)
+	c.writer = csv2.NewWriter(trdsql.outStream)
 	c.writer.Comma, err = getSeparator(trdsql.outSep)
+	c.writer.Quote, err = getSeparator(trdsql.outQuote)
 	if err != nil {
 		debug.Printf("%s\n", err)
 	}
