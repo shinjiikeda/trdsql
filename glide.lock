@@ -1,5 +1,5 @@
 hash: efcfdbddbea11a52e3aebd33e141b8ae3b97713264223920bce0aed6e230089c
-updated: 2017-09-04T20:10:14.601112506+09:00
+updated: 2017-09-04T20:53:22.531871203+09:00
 imports:
 - name: github.com/go-sql-driver/mysql
   version: 26471af196a17ee75a22e6481b5a5897fb16b081
@@ -16,7 +16,7 @@ imports:
 - name: github.com/olekukonko/tablewriter
   version: be5337e7b39e64e5f91445ce7e721888dbab7387
 - name: github.com/shinjiikeda/go-csv2
-  version: 764983d30658ca9f28e416fcece2c09e30267e88
+  version: c274d38f9208f2767a13b2ff46513806560fc03c
 - name: github.com/xwb1989/sqlparser
   version: a9cdf22bd561e715bba34ee228cb1c06bfa2719c
 - name: golang.org/x/crypto
