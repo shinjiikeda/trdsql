@@ -2,7 +2,7 @@ package main
 
 import (
 	//"encoding/csv"
-    "./lib"
+	"github.com/shinjiikeda/go-csv2"
 	"io"
 	"strconv"
 	"strings"
@@ -31,7 +31,7 @@ func (trdsql *TRDSQL) csvInputNew(r io.Reader) (Input, error) {
 	cr.reader.FieldsPerRecord = -1 // no check count
 	cr.reader.TrimLeadingSpace = true
 	cr.reader.Comma, err = getSeparator(trdsql.inSep)
-    cr.reader.Quote, err = getSeparator(trdsql.inQuote)
+	cr.reader.Quote, err = getSeparator(trdsql.inQuote)
 	cr.inHeader = trdsql.ihead
 	return cr, err
 }

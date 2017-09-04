@@ -14,7 +14,7 @@ type TRDSQL struct {
 	inSep     string
 	outSep    string
 	inQuote   string
-	outQuote   string
+	outQuote  string
 	iskip     int
 	iguess    bool
 	iltsv     bool
