@@ -22,7 +22,7 @@ Or download binaries from the [releases](https://github.com/noborus/trdsql/relea
 ```
 Options:
   -config string
-      Configuration file location.
+    	Configuration file location.
   -db string
     	Specify db name of the setting.
   -debug
@@ -41,6 +41,8 @@ Options:
     	The first line is interpreted as column names(CSV only).
   -iltsv
     	LTSV format for input.
+  -iq string
+    	Field Quoter for input. (default "\"")
   -is int
     	Skip header row.
   -oat
@@ -57,6 +59,8 @@ Options:
     	LTSV format for output.
   -omd
     	Mark Down format for output.
+  -oq string
+    	Field Quoter for output. (default "\"")
   -oraw
     	Raw format for output.
   -ovf
